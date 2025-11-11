@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+// 将小写字母转换成大写字母的函数
+char changeChar(char a) { 
+    if (a >= 'a' && a <= 'z') a -= 32;
+    return a;
+}
+int main(){
+    int n;
+    cin>>n;
+    getchar();//注意这里使用了 getchar() 函数来吸收一个回车符，因为在输入n之后通常需要输入回车符才会输入下一行。
+    while(n--){
+    	string word;
+    	getline(cin,word);
+    	string result;
+    	for(int i=0;i<word.size();i++){
+    		if(i==0){
+    			result+=changeChar(word[i]);
+			}else if(word[i]==' '&&word[i+1]!=' '){
+				result+=changeChar(word[i+1]);
+			}
+		}
+		cout<<result<<endl;
+	}
+	return 0;
+}
