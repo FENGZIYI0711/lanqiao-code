@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+struct ListNode{
+    int val;
+    ListNode *next;
+    ListNode(int x):val(x),next(nullptr){}
+};
+int main(){
+    int n,val;
+    ListNode *dummyhead=new ListNode(0);
+    while(cin>>n){
+        ListNode *cur=dummyhead;
+        for (int i=0;i<n;i++){
+            cin>>val;
+            ListNode *newnode=new ListNode(val);
+            cur->next=newnode;
+            cur=cur->next;
+        }
+        cur=dummyhead;
+        while(cur->next!=NULL){
+            cout<<cur->next->val<<" ";
+            cur=cur->next;
+        }
+        cout<<endl;
+    }
+    
+}
