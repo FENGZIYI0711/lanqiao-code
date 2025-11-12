@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
-void change(char &a,char &b){
+void change(char &a,char &b){//注意这里是位置的传入，然后改变位置上的内容，不改变位置
     char temp=a;
     a=b;
     b=temp;
