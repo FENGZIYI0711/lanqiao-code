@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+void change(char &a,char &b){
+    char temp=a;
+    a=b;
+    b=temp;
+}
+int main(){
+    int n;
+    cin>>n;
+    getchar();
+    while(n--){
+        string word;
+        getline(cin,word);
+        for (int i=0;i<word.size();i+=2){
+            swap(word[i],word[i+1]);
+        }
+    cout<<word<<endl;
+    }
+    return 0;
+}
