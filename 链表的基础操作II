@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+struct ListNode{
+    int val;
+    ListNode *next;
+    ListNode(int x):val(x),next(nullptr){}
+};
+int main(){
+    int val,m,n,k;
+    cin>>n>>k;
+    ListNode *dummyhead=new ListNode(0);
+    ListNode *cur=dummyhead;
+    for(int i=0;i<n;i++){
+        int val;
+        cin>>val;
+        ListNode *newnode=new ListNode(val);
+        cur->next=newnode;
+        cur=cur->next;
+    }
+    while(k--){
+        cin>>m;
+        cur=dummyhead;
+        while(m--){
+        if(cur !=NULL){
+            cur=cur->next;
+        }else{
+            break;
+         }}
+        if(cur==NULL||cur==dummyhead){
+            cout << "Output position out of bounds." << endl;
+        }else{
+             cout << cur->val << endl;
+        }
+    }
+}
