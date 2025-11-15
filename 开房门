@@ -1,0 +1,25 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+int main(){
+    int s,n,k,d,x;
+    cin>>s;
+    while(s--){
+        cin>>n;
+        unordered_map<int,int> mymap;
+        while(n--){
+            cin>>k>>d;
+            mymap[k]=d;
+        }
+    cin>>x;
+    bool flag=1;
+    for (const pair<int,int> &kv:mymap){ //const 表示kv不可修改， 加 & 避免数值赋值，提高值传递效率
+        if(kv.second==x){
+            cout<<kv.first<<endl;
+            flag=0;
+            break;
+        }
+    }
+    if(flag) cout<<"Can't open the door." << endl;
+    }
+}
