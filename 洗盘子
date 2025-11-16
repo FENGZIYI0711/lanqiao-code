@@ -1,0 +1,26 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+int main(){
+    int n,m,num,flag;
+    cin>>n;
+    stack<int> st;
+    while(n--){
+        cin>>num;
+        st.push(num);
+    }
+    cin>>m;
+    while(m--){
+        cin>>flag;
+        if(flag==1&&!st.empty()){
+            st.pop();
+        }else if(flag==2){
+            cin>>num;
+            st.push(num);
+        }
+    }
+    if(st.empty()){
+        cout<<"All the dishes have been washed."<<endl;
+    }else
+    cout<<st.top()<<endl;
+}
