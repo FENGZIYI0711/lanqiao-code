@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cstring>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+class Shape{
+    public:
+    virtual double CalculateArea() const=0;
+    virtual string GetType() const=0;
+};
+class Rectangle:public Shape{
+    public:
+    Rectangle(int width,int height):width(width),height(height){}
+    double CalculateArea()const override{
+        return static_cast<double>(width*height);
+    }
+    string GetType() const override{
+        return "Rectangle";
+    }
+    private:
+    int width;
+    int height;
+};
+class Circle:public Shape{
+    public:
+    Circle(int radius):radius(radius){}
+    double CalculateArea()const override{
+        return 3.14*radius*radius;
+    }
+    string GetType() const override{
+        return "Circle";
+    }
+    private:
+    int radius;
+};
+int main(){
+    vector<Shape*> shapes;
+    while(true){
+        string type;
+        cin>>type;
+        if (type == "end") {
+            break;
+        }
+    if(type=="rectangle"){
+        int width,height;
+        cin>>width>>height;
+        shapes.push_back(new Rectangle(width,height));
+    }else if(type=="circle"){
+        int radius;
+        cin>>radius;
+        shapes.push_back(new Circle(radius));
+    }
+    }
+    for(const Shape*shape:shapes){
+        cout<<shape->GetType()<<" area:"<<fixed<<setprecision(2)<<" "<<shape->CalculateArea()<<endl;
+    }   
+    return 0;
+
+}
